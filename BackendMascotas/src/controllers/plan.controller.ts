@@ -4,18 +4,12 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
 import {Plan} from '../models';
 import {PlanRepository} from '../repositories';
@@ -23,8 +17,8 @@ import {PlanRepository} from '../repositories';
 export class PlanController {
   constructor(
     @repository(PlanRepository)
-    public planRepository : PlanRepository,
-  ) {}
+    public planRepository: PlanRepository,
+  ) { }
 
   @post('/plans')
   @response(200, {

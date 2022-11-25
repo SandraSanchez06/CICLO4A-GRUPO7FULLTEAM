@@ -32,7 +32,7 @@ export class UsuarioController {
     public servicioAutenticacion : AutenticacionService
   ) {}
 
-  @post('/IdentificarUsuario',{
+  @post('/identificarUsuario',{
     responses:{
       '200':{
         description:'Identificacion de usuarios'
@@ -81,7 +81,7 @@ export class UsuarioController {
     let contrasena = this.servicioAutenticacion.GenerarContrasena();
     let contrasenaCifrada = this.servicioAutenticacion.CifrarContrasena(contrasena);
     usuario.Contrasena = contrasenaCifrada;
-    let p = await this.usuarioRepository.create(usuario);
+    let p = await this.usuarioRepository.create(usuario); 
 
     //Notificar al usuario
     let destino = usuario.Correo;

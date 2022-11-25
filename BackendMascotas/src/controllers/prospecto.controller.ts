@@ -44,7 +44,7 @@ export class ProspectoController {
     })
     prospecto: Omit<Prospecto, 'id'>,
   ): Promise<Prospecto> {
-    return this.prospectoRepository.create(prospecto);
+     return this.prospectoRepository.create(prospecto);
   }
 
   @get('/prospectos/count')

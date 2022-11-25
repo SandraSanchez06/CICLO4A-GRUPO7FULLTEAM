@@ -4,18 +4,12 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
 import {Sucursal} from '../models';
 import {SucursalRepository} from '../repositories';
@@ -23,10 +17,10 @@ import {SucursalRepository} from '../repositories';
 export class SucursalController {
   constructor(
     @repository(SucursalRepository)
-    public sucursalRepository : SucursalRepository,
-  ) {}
+    public sucursalRepository: SucursalRepository,
+  ) { }
 
-  @post('/sucursals')
+  @post('/sucursal')
   @response(200, {
     description: 'Sucursal model instance',
     content: {'application/json': {schema: getModelSchemaRef(Sucursal)}},
@@ -47,7 +41,7 @@ export class SucursalController {
     return this.sucursalRepository.create(sucursal);
   }
 
-  @get('/sucursals/count')
+  @get('/sucursal/count')
   @response(200, {
     description: 'Sucursal model count',
     content: {'application/json': {schema: CountSchema}},
@@ -58,7 +52,7 @@ export class SucursalController {
     return this.sucursalRepository.count(where);
   }
 
-  @get('/sucursals')
+  @get('/sucursal')
   @response(200, {
     description: 'Array of Sucursal model instances',
     content: {
@@ -76,7 +70,7 @@ export class SucursalController {
     return this.sucursalRepository.find(filter);
   }
 
-  @patch('/sucursals')
+  @patch('/sucursal')
   @response(200, {
     description: 'Sucursal PATCH success count',
     content: {'application/json': {schema: CountSchema}},
@@ -95,7 +89,7 @@ export class SucursalController {
     return this.sucursalRepository.updateAll(sucursal, where);
   }
 
-  @get('/sucursals/{id}')
+  @get('/sucursal/{id}')
   @response(200, {
     description: 'Sucursal model instance',
     content: {
@@ -111,7 +105,7 @@ export class SucursalController {
     return this.sucursalRepository.findById(id, filter);
   }
 
-  @patch('/sucursals/{id}')
+  @patch('/sucursal/{id}')
   @response(204, {
     description: 'Sucursal PATCH success',
   })
@@ -129,7 +123,7 @@ export class SucursalController {
     await this.sucursalRepository.updateById(id, sucursal);
   }
 
-  @put('/sucursals/{id}')
+  @put('/sucursal/{id}')
   @response(204, {
     description: 'Sucursal PUT success',
   })
@@ -140,7 +134,7 @@ export class SucursalController {
     await this.sucursalRepository.replaceById(id, sucursal);
   }
 
-  @del('/sucursals/{id}')
+  @del('/sucursal/{id}')
   @response(204, {
     description: 'Sucursal DELETE success',
   })
